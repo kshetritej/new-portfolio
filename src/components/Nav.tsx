@@ -10,13 +10,13 @@ const Nav = () => {
         </Button>
       </div>
       <div className="flex gap-3 text-xl">
-        <a href="https:://github.com/kshetritej" target="_blank">
+        <a href="https://github.com/kshetritej" target="_blank">
           <Github/>
         </a>
-        <a href="https:://x.com/kshetritej" target="_blank">
+        <a href="https://x.com/kshetritej" target="_blank">
           <Twitter/>
         </a>
-        <a href="https:://linkedin.com/in/kshetritej" target="_blank">
+        <a href="https://linkedin.com/in/kshetritej" target="_blank">
           <Linkedin/>
         </a>
       </div>
