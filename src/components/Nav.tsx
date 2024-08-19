@@ -16,7 +16,7 @@ const Nav = () => {
         <a href="https://x.com/kshetritej_" target="_blank">
           <Twitter/>
         </a>
-        <a href="https://linkedin.com/in/kshetritej" target="_blank">
+        <a href="https://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=kshetritej" target="_blank">
           <Linkedin/>
         </a>
       </div>
