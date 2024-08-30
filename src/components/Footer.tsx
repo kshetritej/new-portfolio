@@ -1,17 +1,23 @@
 import { Button } from "./ui/button";
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Github,  Linkedin, Twitter } from "lucide-react";
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  const handleSubmit = () => {  
+    navigate('/contact');
+  }
   return (
-    <div className="sm:h-[60vh] py-12  px-8 flex flex-col sm:flex-row justify-between">
-      <div className="sm:w-1/2">
+    <div className="sm:h-[60vh] py-12 px-16  flex flex-col lg:flex-row justify-between">
+      <div className="">
         <p>
           Ready to see your digital presence shine? Let's connect and explore
-          how we can refine your user experience for exceptional outcomes
+          how we can refine your user experience for exceptional outcomes.
         </p>
         <div className="flex  items-center gap-5 py-12">
-          <Button variant={"secondary"} className="rounded-full">
-            Get in touch
+          <Button onClick={handleSubmit} variant={"secondary"} className="rounded-full">
+          Get in Touch 
           </Button>
 
           <div className="flex gap-3 text-5xl">

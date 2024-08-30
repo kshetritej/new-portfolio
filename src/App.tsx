@@ -1,20 +1,18 @@
 import Nav from "@/components/Nav";
-import Header from "./components/Header";
-import Services from "./components/Services";
-import Footer from "./components/Footer";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Contact from "@/components/contact";
+import Homepage from "./pages/homepage";
 function App() {
   return (
     <>
-      <div className="sm:w-1/2 m-auto">
+      <Router>
         <Nav />
-        <Header />
-        <Services />
-      </div>
-      <div className="border-b-2"></div>
-      <div className="sm:w-1/2 m-auto">
-
-      <Footer />
-      </div>
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/*" element={<Homepage />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </Router>
     </>
   );
 }

@@ -23,27 +23,23 @@ const Services = () => {
   ];
 
   return (
-    <div>
-      <div className="flex flex-col lg:flex-row gap-5 p-4  py-12 lg:h-[50vh]">
-        {services.map((service) => {
-          return (
-            <motion.div
-              
-              initial="hidden"
-              whileInView="visible"
-              
-              key={service.name}
-              className="w-[320px] flex gap-3 flex-col p-4"
-            >
-              <div className="text-red-200">{service.icon}</div>
-              <div className="py-2">
-                <h2 className="font-medium text-lg">{service.name}</h2>
-              </div>
-              <p>{service.description}</p>
-            </motion.div>
-          );
-        })}
-      </div>
+    <div className="mb-8 p-8 grid  md:grid-cols-2 lg:grid-cols-3">
+      {services.map((service) => {
+        return (
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            key={service.name}
+            className="flex gap-3 flex-col p-4"
+          >
+            <div className="text-red-200">{service.icon}</div>
+            <div className="py-2">
+              <h2 className="font-medium text-lg">{service.name}</h2>
+            </div>
+            <p>{service.description}</p>
+          </motion.div>
+        );
+      })}
     </div>
   );
 };
