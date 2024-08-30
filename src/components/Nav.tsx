@@ -1,12 +1,30 @@
 import { Github, HomeIcon, Linkedin, Send, Twitter } from "lucide-react";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
+import AnimatedBackground from "@/components/motion-primitives/AnimatedBackground";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+
+const TABS = [
+  {
+    icon: <Github />,
+    link: "https://github.com/kshetritej",
+  },
+
+  {
+    icon: <Twitter />,
+    link: "https://x.com/kshetritej_",
+  },
+
+  {
+    icon: <Linkedin />,
+    link: "https://linkedin.com/in/kshetritej",
+  },
+];
 
 const Nav = () => {
   return (
@@ -31,18 +49,28 @@ const Nav = () => {
         </Button>
       </div>
       <div className="flex gap-3 text-xl">
-        <a href="https://github.com/kshetritej" target="_blank">
-          <Github />
-        </a>
-        <a href="https://x.com/kshetritej_" target="_blank">
-          <Twitter />
-        </a>
-        <a
-          href="https://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=kshetritej"
-          target="_blank"
+        <AnimatedBackground
+          className="rounded-lg bg-zinc-100 dark:bg-zinc-800"
+          transition={{
+            type: "spring",
+            bounce: 0.2,
+            duration: 0.3,
+          }}
+          enableHover
         >
-          <Linkedin />
-        </a>
+          {TABS.map((tab, index) => (
+            <button
+              key={index}
+              data-id={`tab-${index}`}
+              type="button"
+              className="p-4 text-zinc-600 transition-colors duration-300 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
+            >
+              <a href={tab.link} target="_blank">
+                {tab.icon}
+              </a>
+            </button>
+          ))}
+        </AnimatedBackground>
       </div>
     </div>
   );

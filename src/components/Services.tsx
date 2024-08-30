@@ -1,5 +1,5 @@
 import { Globe2, LucidePaperclip, Paintbrush } from "lucide-react";
-import { motion } from "framer-motion";
+import AnimatedBackground from "@/components/motion-primitives/AnimatedBackground";
 const Services = () => {
   const services = [
     {
@@ -24,22 +24,31 @@ const Services = () => {
 
   return (
     <div className="mb-8 p-8 grid  md:grid-cols-2 lg:grid-cols-3">
-      {services.map((service) => {
+       <AnimatedBackground
+        className='rounded-lg bg-zinc-100 dark:bg-zinc-800'
+        transition={{
+          type: 'spring',
+          bounce: 0.2,
+          duration: 0.6,
+        }}
+        enableHover
+      >
+      {services.map((service,index) => {
         return (
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
+          <div
             key={service.name}
-            className="flex gap-3 flex-col p-4"
+            data-id={`card-${index}`}
+            className="flex gap-4 flex-col p-12"
           >
             <div className="text-red-200">{service.icon}</div>
             <div className="py-2">
               <h2 className="font-medium text-lg">{service.name}</h2>
             </div>
             <p>{service.description}</p>
-          </motion.div>
+          </div>
         );
       })}
+      </AnimatedBackground>
     </div>
   );
 };
