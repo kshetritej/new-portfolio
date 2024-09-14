@@ -24,7 +24,7 @@ const emailSchema = z
     message: "Please enter a valid email address.",
   })
   .regex(/^[a-zA-Z0-9._%+-]+@(gmail\.com|outlook\.com)$/, {
-    message: "Sorry, but currently we only accept Gmail and Outlook.",
+    message: "Sorry,we only accept Gmail and Outlook.",
   });
 const messageSchema = z.string().refine(
   (value) => {
@@ -73,16 +73,16 @@ export default function ContactForm() {
       toast({
         title: "Great news!",
         description:
-          "Your message has been sent successfully. We'll get back to you soon. 😊",
+          "Your message has been sent successfully. We'll get back to you soon.",
         variant: "success",
       });
       form.reset();
     },
     onError: () => {
       toast({
-        title: "Oops! Something went wrong and we couldn't send your message.",
+        title: "Oops! Something went wrong.",
         description:
-          " Please try again later, and sorry for the inconvenience. 😔",
+          " Please try again later.",
         variant: "destructive",
       });
     },
@@ -96,13 +96,13 @@ export default function ContactForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col space-y-8 m-4 md:w-1/2 bg-primary-foreground p-8 rounded-lg shadow-md"
+        className="bg-white flex flex-col space-y-8 m-4 max-w-screen-md bg-primary-foreground p-8 rounded-lg shadow-md"
       >
         <div className="form-title space-y-4">
           <h2 className="font-bold text-3xl">Chat with me directly.</h2>
-          <p>
+          <p className="text-lg font-medium">
             Want help with something? Want a demo? or
-            <br /> Just want to know me?
+            Just want to know me?
           </p>
         </div>
         <FormField
@@ -144,6 +144,7 @@ export default function ContactForm() {
                 <Textarea
                   placeholder="Type your message here ..."
                   className="resize-none"
+                  rows={8}
                   {...field}
                 />
               </FormControl>
@@ -151,7 +152,7 @@ export default function ContactForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">
+        <Button className="py-6" type="submit">
           {isPending ? <Loader2 className="animate-spin" /> : "Send"}
         </Button>
       </form>

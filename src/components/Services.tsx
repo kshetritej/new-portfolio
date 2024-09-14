@@ -23,31 +23,31 @@ const Services = () => {
   ];
 
   return (
-    <div className="mb-8 p-8 grid  md:grid-cols-2 lg:grid-cols-3">
-       <AnimatedBackground
-        className='rounded-lg bg-zinc-100 dark:bg-zinc-800'
+    <div className="mb-8 p-8 grid md:grid-cols-2 lg:grid-cols-3">
+      <AnimatedBackground
+        className="rounded-lg  bg-zinc-100 dark:bg-zinc-800"
         transition={{
-          type: 'spring',
+          type: "spring",
           bounce: 0.2,
           duration: 0.6,
         }}
         enableHover
       >
-      {services.map((service,index) => {
-        return (
-          <div
-            key={service.name}
-            data-id={`card-${index}`}
-            className="flex gap-4 flex-col p-12"
-          >
-            <div className="text-red-200">{service.icon}</div>
-            <div className="py-2">
-              <h2 className="font-medium text-lg">{service.name}</h2>
+        {services.map((service, index) => {
+          return (
+            <div
+              key={service.name}
+              data-id={`card-${index}`}
+              className="flex gap-4 flex-col p-12"
+            >
+              <div className="text-red-200">{service.icon}</div>
+              <div className="py-2">
+                <h2 className="font-medium text-lg">{service.name}</h2>
+              </div>
+              <p>{service.description}</p>
             </div>
-            <p>{service.description}</p>
-          </div>
-        );
-      })}
+          );
+        })}
       </AnimatedBackground>
     </div>
   );
